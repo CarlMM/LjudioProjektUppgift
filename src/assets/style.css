@@ -1,3 +1,11 @@
 body{
     background-color: aquamarine;
+    font-family: 'Dosis', sans-serif;
+    
+}
+
+.mainDivHome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
