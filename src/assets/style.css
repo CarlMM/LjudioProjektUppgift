@@ -12,6 +12,18 @@ body{
     min-width: 100vw;
 }
 
+nav{
+    display: flex;
+    justify-content: center;
+    padding-top: 2vh;
+    font-size: 3.5vh;
+    
+}
+
+nav > a{
+    padding-right: 2vw;
+}
+
 .mainDivHome{
     display: flex;
     /* border: 1px solid black; */
