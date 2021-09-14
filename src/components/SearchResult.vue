@@ -4,7 +4,10 @@
         <div id="searchLoop" 
         v-for="result in getYTMusic" 
         :key="result.browseId">
+        <router-link type="button" :to="`/musicdetails/${result.browseId}`">
             <p>{{result.name}}</p>
+        </router-link>
+        
             
         </div>
     </div>
