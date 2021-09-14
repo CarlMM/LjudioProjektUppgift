@@ -2,10 +2,11 @@
     <div>
         <h3>SearchResult</h3>
         <div id="searchLoop" 
-        v-for="result in getYTMusic" 
-        :key="result.browseId">
+        v-for="(result, videoId) in getYTMusic" 
+        :key="videoId">
         <router-link type="button" :to="`/musicdetails/${result.browseId}`">
             <p>{{result.name}}</p>
+            
         </router-link>
         
             
@@ -16,17 +17,17 @@
 
 
 <script>
+
+
 export default {
     
 
 
-computed:{
-    getYTMusic(){
-      return this.$store.state.musicResults.content
+    computed:{
+        getYTMusic(){
+           return this.$store.state.musicResults.content
+     }
     }
-}
-
-
 
 
 }

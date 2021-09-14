@@ -5,14 +5,18 @@ const store = createStore({
         musicResults:{
             content:[{
             name:"",
-            browseId:"",
+            videoId:"",
+            //browseId:"",
+            type:"",
             album:{
                 name:"",
+                browseId:"",
             },
             artist:{
                 name:"",
+                browseId:"",
             }
-        }]
+         }]
         }
    },
    mutations:{
@@ -27,7 +31,6 @@ const store = createStore({
             let response = await fetch
             (`https://yt-music-api.herokuapp.com/api/yt/search/${searchString}`)
             let data = await response.json()
-            
 
 
             commit('fetchYouTubeApi', data)

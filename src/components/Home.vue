@@ -24,7 +24,9 @@
 
 <script>
 import SearchResult from './SearchResult.vue'
+
 import {ref} from 'vue'
+
 
 
 
@@ -58,6 +60,7 @@ export default {
 
   components:{
     SearchResult,
+    
   },
 
   methods:{
