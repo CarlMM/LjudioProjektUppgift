@@ -2,18 +2,31 @@ import { createStore } from "vuex"
 
 const store = createStore({
    state:{
-        name: "Vue"
+        musicResults:[{
+
+        }]
    },
    mutations:{
-       setName(state, x){
-           state.name = x
+       fetchYouTubeApi(state,data){
+            state.musicResults = data;
        }
    },
    actions:{
-        async ({commit}){
-            let name = 'Vue with vuex'
-            commit('setName', name)
+        
+        async fetchYouTubeApi({commit}, searchString){
+            let response = await fetch
+            (`https://yt-music-api.herokuapp.com/api/yt/artists/${searchString}`)
+            let data = await response.json()
+            
+
+
+            commit('fetchYouTubeApi', data)
+
+            console.log(data)
         }
+
+
+
    }
 })
 
