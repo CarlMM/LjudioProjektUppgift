@@ -12,6 +12,21 @@ body{
     min-width: 100vw;
 }
 
+#ljudioLogo{
+
+    text-align: center;
+
+
+}
+
+
+#ljudioLogo > img{
+    
+    width: 50vw;
+    
+    
+}
+
 nav{
     display: flex;
     justify-content: center;

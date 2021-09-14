@@ -49,7 +49,7 @@ export default {
 
   setup(){
   
-      const searchString = ref('')
+    const searchString = ref('')
     return{
     searchString,
     }
@@ -60,7 +60,6 @@ export default {
     SearchResult,
   },
 
-
   methods:{
 
       async getMusic(searchString){
@@ -70,7 +69,6 @@ export default {
         
       }
   },
-
 
   computed:{
     getYTMusic(){
