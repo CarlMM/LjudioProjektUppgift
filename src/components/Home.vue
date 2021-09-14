@@ -4,10 +4,20 @@
         <h3>Ljudio</h3>
         <input type="text" placeholder="Search..." v-model='searchString'>
         <button @click="getMusic(searchString)">Sök</button>
-        <div>
+
+
+
+        <div v-if="ifSearched">
           <search-result/>
+        </div>
+
+
+
+        <!-- <div>
+          <h2>Search Results</h2>
+          <p>{{getYTMusic.name}}</p>
           
-          </div>
+        </div> -->
   </div>
 </template>
 
@@ -27,6 +37,16 @@ import {ref} from 'vue'
 
 export default {
     
+  data(){
+
+
+
+    return{
+    ifSearched: false,
+    }
+  },
+
+
   setup(){
   
       const searchString = ref('')
@@ -42,8 +62,11 @@ export default {
 
 
   methods:{
+
       async getMusic(searchString){
+        this.ifSearched = true
         return await this.$store.dispatch('fetchYouTubeApi', searchString)
+        
         
       }
   },
@@ -51,7 +74,7 @@ export default {
 
   computed:{
     getYTMusic(){
-      return this.$store.state.musicResult
+      return this.$store.state.musicResult.content
     }
   }
 
