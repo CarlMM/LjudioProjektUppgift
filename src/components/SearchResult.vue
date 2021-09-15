@@ -5,12 +5,24 @@
             <div id="songLoop"
                     v-for="songs in getYTSongs"
                     :key="songs.videoId">
-                    <router-link type="button" :to="`/songdetails/${songs.videoId}`">
-                    <p>{{songs.name}} + {{songs.type}}</p>
-                    </router-link>
+                    <div v-if="songs.type === 'song'">
+                        <router-link type="button" :to="`/songdetails/${songs.videoId}`">
+                        <p>{{songs.name}} + {{songs.type}}</p>
+                        </router-link>
+                    </div>
+                    <div v-if="songs.type === 'artist'">
+                        <router-link type="button" :to="`/artistdetails/${songs.browseId}`">
+                        <p>{{songs.name}} + {{songs.type}}</p>
+                        </router-link>
+                    </div>
+                    <div v-if="songs.type === 'album'">
+                        <router-link type="button" :to="`/albumdetails/${songs.browseId}`">
+                        <p>{{songs.name}} + {{songs.type}}</p>
+                        </router-link>
+                    </div>
             </div>
         
-            <div id="artistLoop"
+            <!-- <div id="artistLoop"
             v-for="(artists, browseId) in getYtArtists" :key="browseId">
                 <router-link type="button" :to="`/artistdetails/${artists.browseId}`">
                 <p>
@@ -24,7 +36,7 @@
             <p>
                 {{albums.name}}
             </p>
-        </div>
+        </div> -->
             
         
     </div>
@@ -40,25 +52,22 @@ export default {
     computed:{
 
         getYTSongs: function(){
-
             return this.$store.state.musicResults.content;
-
-           //return this.$store.state.musicResults.content;
         },
-        getYtArtists: function(){
-            return this.$store.state.musicResults.content.artist;
-        },
-        getYtAlbums: function(){
-            return this.$store.state.musicResults.content.album;
-        }
+        // getYtArtists: function(){
+        //     return this.$store.state.musicResults.content.artist;
+        // },
+        // getYtAlbums: function(){
+        //     return this.$store.state.musicResults.content.album;
+        // }
     },
 
-    methods:{
-        //osäker om denna behövs
-        sendToRoute(type, id){
-            this.$router.push(`/${type}/${id}`)
-        }
-    }
+    // methods:{
+    //     //osäker om denna behövs
+    //     sendToRoute(type, id){
+    //         this.$router.push(`/${type}/${id}`)
+    //     }
+    // }
 
 
 }
