@@ -15,7 +15,10 @@ const store = createStore({
             artist:{
                 name:"",
                 browseId:"",
-            }
+            },
+            song:{
+                name:"",
+            },
          }]
         }
    },

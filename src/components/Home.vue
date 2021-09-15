@@ -10,7 +10,7 @@
               <option :value="'albums'">Album</option>
             </select>
         </div>
-        <button @click="getMusic(searchObj)">Sök</button>
+        <button @click="getMusic(searchObj)">Searchk</button>
 
 
 
@@ -75,8 +75,6 @@ export default {
       return this.$store.state.musicResult.content
     }
   }
-
-
 
 
 }
