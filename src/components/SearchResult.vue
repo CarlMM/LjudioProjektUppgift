@@ -1,20 +1,34 @@
 <template>
     <div>
         <h3>SearchResult</h3>
-        <div id="searchLoop" 
-        v-for="(result, videoId) in getYTMusic" 
-        :key="videoId">
-        <router-link type="button" :to="`/musicdetails/${result.browseId}`"> 
-            <p>{{result.name}}</p>
-            
-        </router-link>
         
-            
+            <div id="songLoop"
+                    v-for="songs in getYTSongs"
+                    :key="songs.videoId">
+                    <router-link type="button" :to="`/songdetails/${songs.videoId}`">
+                    <p>{{songs.name}} + {{songs.type}}</p>
+                    </router-link>
+            </div>
+        
+            <div id="artistLoop"
+            v-for="(artists, browseId) in getYtArtists" :key="browseId">
+                <router-link type="button" :to="`/artistdetails/${artists.browseId}`">
+                <p>
+                    {{artists.name}}
+                    {{artists.browseId}}
+                </p>
+                </router-link>
+            </div>
+
+        <div id="albumLoop" v-for="(albums, browseId) in getYtAlbums" :key="browseId">
+            <p>
+                {{albums.name}}
+            </p>
         </div>
+            
+        
     </div>
 </template>
-
-
 
 <script>
 
@@ -24,10 +38,26 @@ export default {
     //Osäker routing i routerlink, vissa objekt i arrayen har ej videoId    
 
     computed:{
-        getYTMusic(){
 
-           return this.$store.state.musicResults.content
-     }
+        getYTSongs: function(){
+
+            return this.$store.state.musicResults.content;
+
+           //return this.$store.state.musicResults.content;
+        },
+        getYtArtists: function(){
+            return this.$store.state.musicResults.content.artist;
+        },
+        getYtAlbums: function(){
+            return this.$store.state.musicResults.content.album;
+        }
+    },
+
+    methods:{
+        //osäker om denna behövs
+        sendToRoute(type, id){
+            this.$router.push(`/${type}/${id}`)
+        }
     }
 
 

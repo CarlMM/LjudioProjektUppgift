@@ -16,8 +16,8 @@ const store = createStore({
                 name:"",
                 browseId:"",
             },
-            song:{
-                name:"",
+            type:{
+                //name:"",
             },
          }]
         }

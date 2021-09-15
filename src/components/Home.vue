@@ -10,7 +10,7 @@
               <option :value="'albums'">Album</option>
             </select>
         </div>
-        <button @click="getMusic(searchObj)">Searchk</button>
+        <button @click="getMusic(searchObj)">Search</button>
 
 
 
@@ -40,19 +40,6 @@ export default {
     }
   },
 
-
-  // setup(){
-  
-  //   const searchString = ref('')
-    
-
-  //   return{
-  //   searchString,
-    
-  //   }
-  // },
-
-
   components:{
     SearchResult,
     
@@ -64,9 +51,7 @@ export default {
         this.ifSearched = true
         return await this.$store.dispatch('fetchYouTubeApi', searchObj)
         
-        
       },
-
 
   },
 
@@ -75,7 +60,6 @@ export default {
       return this.$store.state.musicResult.content
     }
   }
-
 
 }
 </script>

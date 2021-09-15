@@ -2,7 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '/src/components/Home.vue'
 import About from '/src/components/About.vue'
 import Contact from '/src/components/Contact.vue'
-//import MusicDetails from '/src/components/MusicDetails.vue'
+import SongDetails from '/src/components/details/SongDetails.vue'
+import ArtistDetails from '/src/components/details/ArtistDetails.vue'
+import AlbumDetails from '/src/components/details/AlbumDetails.vue'
+
 
 
 const routes = [
@@ -21,11 +24,21 @@ const routes = [
         name: 'Contact',
         component: Contact,
     },
-    // {
-    //     path: '/musicdetails/:videoId',
-    //     name: 'MusicDetails',
-    //     component: MusicDetails,
-    // },
+    {
+        path: '/songdetails/:videoId',
+        name: 'SongDetails',
+        component: SongDetails,
+    },
+    {
+        path: '/albumdetails/:browseId',
+        name: 'AlbumDetails',
+        component: AlbumDetails,
+    },
+    {
+        path: '/artistdetails/:browseId',
+        name: 'ArtistDetails',
+        component: ArtistDetails,
+    },
 ]
 const router = createRouter({
     history: createWebHistory(),
