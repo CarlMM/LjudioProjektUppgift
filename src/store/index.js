@@ -27,9 +27,9 @@ const store = createStore({
    },
    actions:{
         
-        async fetchYouTubeApi({commit}, searchString){
+        async fetchYouTubeApi({commit}, searchObj){
             let response = await fetch
-            (`https://yt-music-api.herokuapp.com/api/yt/search/${searchString}`)
+            (`https://yt-music-api.herokuapp.com/api/yt/${searchObj.whatSearch}/${searchObj.searchString}`)
             let data = await response.json()
 
 

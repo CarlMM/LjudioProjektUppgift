@@ -2,15 +2,15 @@
   <div class="mainDivHome">
         <h1>HomeView</h1>
         <div>
-          <h4>Search for {{whatSearch}}</h4>
-          <input type="text" placeholder="Search..." v-model='searchString'>
-            <select name="searchOption" id="searchOption" v-model='whatSearch'>
-              <option :value="'Song'">Song</option>
-              <option :value="'Artist'">Artist</option>
-              <option :value="'Album'">Album</option>
+          <h4>Search for {{searchObj.whatSearch}}</h4>
+          <input type="text" placeholder="Search..." v-model='searchObj.searchString'>
+            <select name="searchOption" id="searchOption" v-model='searchObj.whatSearch'>
+              <option :value="'songs'">Song</option>
+              <option :value="'artists'">Artist</option>
+              <option :value="'albums'">Album</option>
             </select>
         </div>
-        <button @click="getMusic(searchString)">Sök</button>
+        <button @click="getMusic(searchObj)">Sök</button>
 
 
 
@@ -24,7 +24,7 @@
 
 <script>
 import SearchResult from './SearchResult.vue'
-import {ref} from 'vue'
+
 
 
 export default {
@@ -33,21 +33,24 @@ export default {
 
     return{
     ifSearched: false,
-    whatSearch: 'Song',
+      searchObj:{
+        whatSearch: 'songs',
+        searchString: '',
+      },
     }
   },
 
 
-  setup(){
+  // setup(){
   
-    const searchString = ref('')
+  //   const searchString = ref('')
     
 
-    return{
-    searchString,
+  //   return{
+  //   searchString,
     
-    }
-  },
+  //   }
+  // },
 
 
   components:{
@@ -57,9 +60,9 @@ export default {
 
   methods:{
 
-      async getMusic(searchString){
+      async getMusic(searchObj){
         this.ifSearched = true
-        return await this.$store.dispatch('fetchYouTubeApi', searchString)
+        return await this.$store.dispatch('fetchYouTubeApi', searchObj)
         
         
       },
