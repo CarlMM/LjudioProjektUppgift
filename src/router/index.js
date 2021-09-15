@@ -22,7 +22,7 @@ const routes = [
         component: Contact,
     },
     {
-        path: '/musicdetails/:browseId',
+        path: '/musicdetails/:videoId',
         name: 'MusicDetails',
         component: MusicDetails,
     },

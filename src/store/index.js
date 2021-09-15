@@ -5,8 +5,8 @@ const store = createStore({
         musicResults:{
             content:[{
             name:"",
-            videoId:"",
-            //browseId:"",
+            //videoId:"", //Osäkert, vissa objekt i arrayen har ej videoId
+            browseId:"",
             type:"",
             album:{
                 name:"",

@@ -11,13 +11,6 @@
           <search-result/>
         </div>
 
-
-
-        <!-- <div>
-          <h2>Search Results</h2>
-          <p>{{getYTMusic.name}}</p>
-          
-        </div> -->
   </div>
 </template>
 
@@ -29,13 +22,6 @@ import {ref} from 'vue'
 
 
 
-
-
- //   computed:{
-  //     getMusic(){
-  //       return await this.$store.dispatch('fetchYouTubeApi')
-  //    }
-  //  },
 
 export default {
     
