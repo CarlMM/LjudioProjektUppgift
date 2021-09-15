@@ -57,8 +57,13 @@ nav > a{
 
 .mainDivHome > input{
     width: 30vw;
+    font-size: 2vh;
 }
 
 .mainDivHome > button{
-    font-size: 2vh;
+    font-size: 1.8vh;
+}
+
+.mainDivHome > div> select{
+    font-size: 1.8vh;
 }

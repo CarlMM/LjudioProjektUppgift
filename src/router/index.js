@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '/src/components/Home.vue'
 import About from '/src/components/About.vue'
 import Contact from '/src/components/Contact.vue'
-import MusicDetails from '/src/components/MusicDetails.vue'
+//import MusicDetails from '/src/components/MusicDetails.vue'
 
 
 const routes = [
@@ -21,11 +21,11 @@ const routes = [
         name: 'Contact',
         component: Contact,
     },
-    {
-        path: '/musicdetails/:videoId',
-        name: 'MusicDetails',
-        component: MusicDetails,
-    },
+    // {
+    //     path: '/musicdetails/:videoId',
+    //     name: 'MusicDetails',
+    //     component: MusicDetails,
+    // },
 ]
 const router = createRouter({
     history: createWebHistory(),

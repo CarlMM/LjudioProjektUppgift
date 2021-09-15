@@ -26,8 +26,6 @@ export default {
     computed:{
         getYTMusic(){
 
-            
-
            return this.$store.state.musicResults.content
      }
     }

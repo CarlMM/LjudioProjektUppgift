@@ -1,8 +1,15 @@
 <template>
   <div class="mainDivHome">
         <h1>HomeView</h1>
-        <h3>Ljudio</h3>
-        <input type="text" placeholder="Search..." v-model='searchString'>
+        <div>
+          <h4>Search for {{whatSearch}}</h4>
+          <input type="text" placeholder="Search..." v-model='searchString'>
+            <select name="searchOption" id="searchOption" v-model='whatSearch'>
+              <option :value="'Song'">Song</option>
+              <option :value="'Artist'">Artist</option>
+              <option :value="'Album'">Album</option>
+            </select>
+        </div>
         <button @click="getMusic(searchString)">Sök</button>
 
 
@@ -17,20 +24,16 @@
 
 <script>
 import SearchResult from './SearchResult.vue'
-
 import {ref} from 'vue'
-
-
 
 
 export default {
     
   data(){
 
-
-
     return{
     ifSearched: false,
+    whatSearch: 'Song',
     }
   },
 
@@ -38,8 +41,11 @@ export default {
   setup(){
   
     const searchString = ref('')
+    
+
     return{
     searchString,
+    
     }
   },
 
@@ -56,7 +62,9 @@ export default {
         return await this.$store.dispatch('fetchYouTubeApi', searchString)
         
         
-      }
+      },
+
+
   },
 
   computed:{
