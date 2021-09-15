@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Music Details</h1>
+        <h1>Song Details</h1>
 
 
         <div id="ytPlayer">
