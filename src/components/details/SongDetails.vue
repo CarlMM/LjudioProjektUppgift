@@ -1,24 +1,17 @@
 <template>
     <div>
         <h1>Song Details</h1>
-        
             <p>Videon/låten tänkt spelat här</p>
             <div>
                 <!-- <div id="songInfo" v-for="songs in getCurrentYTSong" 
                 :key="songs.videoId">
                 <p> {{ songs.name }} </p>
                 </div> -->
-
-                    
-                            {{getSongInfo.artist.name}} +
-                            <!-- {{getSongInfo.album.name}} -->
-                            {{getSongInfo.name}} + 
-
-                            {{vidId}}
-                        
-                    
-                
-                    
+                 <p>
+                     {{getSongInfo.artist.name}} + 
+                     {{getSongInfo.name}} + 
+                     <!-- {{vidId}} -->
+                 </p>
 
             </div>
         
@@ -29,24 +22,21 @@
 
 
 export default {
-    // props:{
-    //     currentSong: Object,
-    // },
 
     computed:{
     getCurrentYTSong: function(){
         if(this.$store.state.musicResults.videoId === this.vidId){
-            
             return this.$store.state.musicResults;
-            
-            
         }
     },
 
     getSongInfo(){
         return this.$store.state.song
-    }
-},
+        }
+    },
+    
+
+
     data(){
         return{
             vidId: this.$route.params.videoId

@@ -20,7 +20,11 @@ const store = createStore({
             //     //name:"",
             // },
          ],
-         song:{},
+         song:{
+             artist:{
+                 name:"",
+             }
+         },
         
    },
    mutations:{
