@@ -1,60 +1,69 @@
 <template>
     <div>
         <h1>Song Details</h1>
-        <div id="ytPlayer">
+        
             <p>Videon/låten tänkt spelat här</p>
-            <div >
-                <p>
-                    {{vidId}}
-                </p>
+            <div>
+                <!-- <div id="songInfo" v-for="songs in getCurrentYTSong" 
+                :key="songs.videoId">
+                <p> {{ songs.name }} </p>
+                </div> -->
+
+                    
+                            {{getSongInfo.artist.name}} +
+                            <!-- {{getSongInfo.album.name}} -->
+                            {{getSongInfo.name}} + 
+
+                            {{vidId}}
+                        
+                    
+                
+                    
+
             </div>
-
-
-
-        </div>
+        
     </div>
 </template>
-
-
 
 <script>
 
 
 export default {
-    
+    // props:{
+    //     currentSong: Object,
+    // },
 
+    computed:{
+    getCurrentYTSong: function(){
+        if(this.$store.state.musicResults.videoId === this.vidId){
+            
+            return this.$store.state.musicResults;
+            
+            
+        }
+    },
 
+    getSongInfo(){
+        return this.$store.state.song
+    }
+},
     data(){
         return{
             vidId: this.$route.params.videoId
         }
     },
 
-mounted(){
-    
-},
+    mounted(){
+    this.getCurrentSong(this.vidId)
+    },
 
-
-computed:{
-    getCurrentYTSong(){
-        if(this.$store.state.musicResults.content.videoId === this.vidId){
-            console.log()
-            return this.$store.state.musicResults.content
-            
-            
-        }
-    }
-},
 
 methods:{
-    // getCurrentSong(){
-    //     return this.$store.state.musicResults.content
-    // }
+      getCurrentSong(vidId){
+        this.$store.dispatch('fetchCurrentSong', vidId)
+      }
+   },
+   
+ }
 
-
-}
-
-
-
-}
 </script>

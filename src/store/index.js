@@ -2,8 +2,8 @@ import { createStore } from "vuex"
 
 const store = createStore({
    state:{
-        musicResults:{
-            content:[{
+        musicResults:
+            [
             // name:"",
             // //videoId:"", //Osäkert, vissa objekt i arrayen har ej videoId
             // browseId:"",
@@ -19,12 +19,13 @@ const store = createStore({
             // type:{
             //     //name:"",
             // },
-         }]
-        }
+         ],
+         song:{},
+        
    },
    mutations:{
-       fetchYouTubeApi(state,data){
-            state.musicResults = data;
+       fetchYouTubeApi(state, data){
+            state.musicResults = data.content;
             console.log(state.musicResults, 'RandomInfo')
        },
        fetchYouTubeArtistApi(state, data){
@@ -35,9 +36,14 @@ const store = createStore({
            state.musicResults.content.album = data;
            console.log(state.musicResults.album)
        },
-    //    fetchCurrentSong(state, data){
-    //        state.musicResults.content.
-    //    }
+       fetchCurrentSong(state, data){
+           state.musicResults.content = data
+           console.log(state.musicResults.content, 'random')
+       },
+       setCurrentSong(state, song){
+           state.song= song.content[0];
+       }
+      
 
    },
    actions:{
@@ -46,7 +52,6 @@ const store = createStore({
             let response = await fetch
             (`https://yt-music-api.herokuapp.com/api/yt/${searchObj.whatSearch}/${searchObj.searchString}`)
             let data = await response.json()
-
 
             commit('fetchYouTubeApi', data)
 
@@ -75,11 +80,12 @@ const store = createStore({
 
 
         async fetchCurrentSong({commit}, vId){
-            let response = await fetch(`https://yt-music-api.herokuapp.com/api/yt/songs/${vId}`)
+            let response = await fetch
+            (`https://yt-music-api.herokuapp.com/api/yt/songs/${vId}`)
             let data = await response.json()
 
 
-            commit('fetchCurrentSong', data)
+            commit('setCurrentSong', data)
 
             console.log(data)
         }

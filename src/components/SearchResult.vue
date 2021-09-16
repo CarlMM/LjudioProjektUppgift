@@ -6,7 +6,7 @@
                     v-for="songs in getYTSongs"
                     :key="songs.videoId">
                     <div v-if="songs.type === 'song'">
-                        <router-link type="button" :to="`/songdetails/${songs.videoId}`">
+                        <router-link @click="setSongInfo(songs.videoId)" type="button" :to="`/songdetails/${songs.videoId}`">
                         <p>{{songs.name}} + {{songs.type}}</p>
                         </router-link>
                     </div>
@@ -46,13 +46,11 @@
 
 
 export default {
-    
-    //Osäker routing i routerlink, vissa objekt i arrayen har ej videoId    
 
     computed:{
 
         getYTSongs: function(){
-            return this.$store.state.musicResults.content;
+            return this.$store.state.musicResults;
         },
         // getYtArtists: function(){
         //     return this.$store.state.musicResults.content.artist;
@@ -62,12 +60,11 @@ export default {
         // }
     },
 
-    // methods:{
-    //     //osäker om denna behövs
-    //     sendToRoute(type, id){
-    //         this.$router.push(`/${type}/${id}`)
-    //     }
-    // }
+    methods:{
+        setSongInfo(vidId){
+            this.$store.dispatch('fetchCurrentSong', vidId)
+        }
+    }
 
 
 }
