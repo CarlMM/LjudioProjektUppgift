@@ -11,6 +11,7 @@
                  </p>
                 <button @click="playSong(vidId)">Play</button>
                 <button @click="pauseSong()">Pause</button>
+                <input @change="changeVolume(inputRange)" type="range" min="0" max="100" v-model='inputRange'>
             </div>
         
     </div>
@@ -21,24 +22,19 @@
 
 export default {
 
-
-
-
     computed:{
-    
     getSongInfo(){
         return this.$store.state.song
         }
     },
-    
-
 
     data(){
         return{
-            vidId: this.$route.params.videoId
+            vidId: this.$route.params.videoId,
+            inputRange: 10,
+
         }
     },
-
 
 methods:{
       getCurrentSong(vidId){
@@ -48,10 +44,14 @@ methods:{
       playSong(vidId){
        window.player.loadVideoById(vidId)
        window.player.playVideo()
-   },
-   pauseSong(){
-       window.player.pauseVideo()
-   },
+      },
+        pauseSong(){
+        window.player.pauseVideo()
+        },
+        changeVolume(inputRange){
+        window.player.setVolume(inputRange)
+        },
+
    },
 
    

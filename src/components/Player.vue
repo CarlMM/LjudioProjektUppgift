@@ -16,6 +16,9 @@ export default {
     },
     pause(){
       window.player.pauseVideo()
+    },
+    myVolume(){
+        window.player.setVolume()
     }
   }
 }
