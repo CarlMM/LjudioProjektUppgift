@@ -18,7 +18,7 @@
 </template>
 
 <script>
-
+//metod som returnerar https://www.youtube.com/watch?v={vId}
 
 export default {
 

@@ -23,6 +23,7 @@ const store = createStore({
          song:{
              artist:{
                  name:"",
+                 browseId: "",
              }
          },
          artists:{

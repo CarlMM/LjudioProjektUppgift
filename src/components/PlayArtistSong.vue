@@ -5,8 +5,25 @@
 </template>
 
 <script>
+
+
+
 export default {
     
+    data(){
+
+    },
+
+
+    computed:{
+
+    },
+
+
+
+    methods:{
+    
+    },
 
 
 
