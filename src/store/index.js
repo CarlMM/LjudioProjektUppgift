@@ -26,6 +26,13 @@ const store = createStore({
              }
          },
          artists:{
+             products:{
+                 songs:{
+                     content:[{
+                         
+                     }]
+                 }
+             }
 
 
          },

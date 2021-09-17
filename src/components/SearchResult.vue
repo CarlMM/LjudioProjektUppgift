@@ -22,22 +22,6 @@
                     </div>
             </div>
         
-            <!-- <div id="artistLoop"
-            v-for="(artists, browseId) in getYtArtists" :key="browseId">
-                <router-link type="button" :to="`/artistdetails/${artists.browseId}`">
-                <p>
-                    {{artists.name}}
-                    {{artists.browseId}}
-                </p>
-                </router-link>
-            </div>
-
-        <div id="albumLoop" v-for="(albums, browseId) in getYtAlbums" :key="browseId">
-            <p>
-                {{albums.name}}
-            </p>
-        </div> -->
-            
         
     </div>
 </template>
