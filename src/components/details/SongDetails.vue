@@ -9,7 +9,8 @@
                      {{getSongInfo.name}} + 
                      <!-- {{vidId}} -->
                  </p>
-
+                <button @click="playSong(vidId)">Play</button>
+                <button @click="pauseSong()">Pause</button>
             </div>
         
     </div>
@@ -19,6 +20,9 @@
 
 
 export default {
+
+
+
 
     computed:{
     
@@ -39,8 +43,18 @@ export default {
 methods:{
       getCurrentSong(vidId){
         this.$store.dispatch('fetchCurrentSong', vidId)
-      }
+      },
+
+      playSong(vidId){
+       window.player.loadVideoById(vidId)
+       window.player.playVideo()
    },
+   pauseSong(){
+       window.player.pauseVideo()
+   },
+   },
+
+   
    
  }
 
