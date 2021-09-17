@@ -31,7 +31,7 @@ export default {
     data(){
         return{
             vidId: this.$route.params.videoId,
-            inputRange: 10,
+            inputRange: 5,
 
         }
     },

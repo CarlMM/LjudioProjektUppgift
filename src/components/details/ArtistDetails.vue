@@ -3,9 +3,7 @@
         <h1>Artist view</h1>
         <div>
             {{getArtistInfo.name}}
-            <p>{{getArtistInfo.description}}
-
-            </p>
+            
             {{bId}}
         </div>
     </div>
