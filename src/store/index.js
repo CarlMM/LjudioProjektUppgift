@@ -1,4 +1,4 @@
-import { createStore } from "vuex" 
+import { createStore } from "vuex"
 
 const store = createStore({
    state:{
@@ -25,7 +25,11 @@ const store = createStore({
                  name:"",
              }
          },
-        
+         artists:{
+
+
+         },
+
    },
    mutations:{
        fetchYouTubeApi(state, data){
@@ -40,18 +44,22 @@ const store = createStore({
            state.musicResults.content.album = data;
            console.log(state.musicResults.album)
        },
-       fetchCurrentSong(state, data){
-           state.musicResults.content = data
-           console.log(state.musicResults.content, 'random')
-       },
+    //    fetchCurrentSong(state, data){
+    //        state.musicResults.content = data
+    //        console.log(state.musicResults.content, 'random')
+    //    },
        setCurrentSong(state, song){
-           state.song= song.content[0];
+           state.song = song.content[0];
+       },
+       setCurrentArtist(state, artists){
+           state.artists = artists;
+           console.log(state.artists)
        }
-      
+
 
    },
    actions:{
-        
+
         async fetchYouTubeApi({commit}, searchObj){
             let response = await fetch
             (`https://yt-music-api.herokuapp.com/api/yt/${searchObj.whatSearch}/${searchObj.searchString}`)
@@ -67,32 +75,30 @@ const store = createStore({
             (`https://yt-music-api.herokuapp.com/api/yt/artist/${bId}`)
             let data = await response.json()
 
-            commit('fetchYouTubeArtistApi', data)
+            commit('setCurrentArtist', data)
 
             console.log(data)
         },
-
-        async fetchYouTubeAlbumApi({commit}, bId){
-            let response = await fetch
-            (`https://yt-music-api.herokuapp.com/api/yt/album/${bId}`)
-            let data = await response.json()
-
-            commit('fetchYouTubeArtistApi', data)
-
-            console.log(data)
-        },
-
 
         async fetchCurrentSong({commit}, vId){
             let response = await fetch
             (`https://yt-music-api.herokuapp.com/api/yt/songs/${vId}`)
             let data = await response.json()
 
-
             commit('setCurrentSong', data)
 
             console.log(data)
-        }
+        },
+
+        // async fetchYouTubeAlbumApi({commit}, bId){
+        //     let response = await fetch
+        //     (`https://yt-music-api.herokuapp.com/api/yt/album/${bId}`)
+        //     let data = await response.json()
+
+        //     commit('fetchYouTubeAlbumApi', data)
+
+        //     console.log(data)
+        // },
 
 
 

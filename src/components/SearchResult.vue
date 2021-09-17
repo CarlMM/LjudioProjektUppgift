@@ -11,7 +11,7 @@
                         </router-link>
                     </div>
                     <div v-if="songs.type === 'artist'">
-                        <router-link type="button" :to="`/artistdetails/${songs.browseId}`">
+                        <router-link @click="setArtistInfo(songs.browseId)" type="button" :to="`/artistdetails/${songs.browseId}`">
                         <p>{{songs.name}} + {{songs.type}}</p>
                         </router-link>
                     </div>
@@ -63,7 +63,11 @@ export default {
     methods:{
         setSongInfo(vidId){
             this.$store.dispatch('fetchCurrentSong', vidId)
-        }
+        },
+
+        setArtistInfo(bId){
+            this.$store.dispatch('fetchYouTubeArtistApi', bId)
+        },
     }
 
 
