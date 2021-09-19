@@ -8,7 +8,7 @@
             <!-- {{bId}} -->
             <div v-for="o in getArtistSongs" :key="o.videoId">
                 <p>
-                    
+                    {{o.name}}
                 </p>
 
             </div>

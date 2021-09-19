@@ -31,7 +31,7 @@ const store = createStore({
          },
          
          artistSongs:[{
-            name: "",
+
          }],
 
    },
@@ -57,7 +57,7 @@ const store = createStore({
            console.log(state.artists, 'nuvarande artist', state.artists.name)
        },
        setArtistSongs(state, artistSongs){
-        state.artistSongs = artistSongs;
+        state.artistSongs = artistSongs.content;
         console.log(artistSongs, 'här är artistens låtar')
        },
 
