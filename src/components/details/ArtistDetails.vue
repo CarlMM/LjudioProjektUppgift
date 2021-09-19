@@ -4,12 +4,18 @@
         <div>
             
             <h4>{{getArtistInfo.name}}</h4>
+            <p>
+                {{bId}}
+            </p>
             
             <!-- {{bId}} -->
             <div v-for="o in getArtistSongs" :key="o.videoId">
-                <p>
-                    {{o.name}}
-                </p>
+                <div v-if="o.artist.browseId === this.bId">
+                    <p>
+                        {{o.name}}
+                        {{o.artist.name}}
+                    </p>
+                </div>
 
             </div>
 
@@ -37,27 +43,16 @@ export default {
         getArtistSongs(){
             return this.$store.state.artistSongs
         }
-        // async getArtistSongs(){
-        //     console.log(this.$store.state.song)
-        //     return await this.$store.state.song
-        // },
+       
         
     },
 
     created(){
-        //this.getAllArtistSongs()
+        
     },
 
     methods:{
-    //     getCurrentArtist(bId){
-    //     console.log('Hämtar current artist')
-    //     this.$store.dispatch('fetchYouTubeArtistApi', bId)
-    //   },
-
-    //   getCurrentSong(vidId){
-    //       //this one doesnt work yet
-    //     this.$store.dispatch('fetchCurrentSong', vidId)
-    //   },
+ 
 
       async getAllArtistSongs(bandName){
             bandName = this.$store.state.artists.name
