@@ -31,8 +31,16 @@
 
 export default {
 
-    computed:{
 
+
+    data(){
+        return{
+            bandName: this.$store.state.musicResults.name
+        }
+    },
+
+
+    computed:{
         getYTSongs: function(){
             return this.$store.state.musicResults;
         },
@@ -51,8 +59,16 @@ export default {
 
         setArtistInfo(bId){
             this.$store.dispatch('fetchYouTubeArtistApi', bId)
+            //this.getAllArtistSongs()
             
         },
+
+    //     async getAllArtistSongs(bName){
+    //         bName = this.bandName
+           
+    //         console.log('Detta är bandets namn: ', bName)
+    //          await this.$store.dispatch('fetchAllArtistSongs', bName)
+    //   },
     }
 
 

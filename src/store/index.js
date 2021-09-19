@@ -4,7 +4,8 @@ const store = createStore({
    state:{
         musicResults:
             [
-            // name:"",
+             {
+             //name:"",
             // //videoId:"", //Osäkert, vissa objekt i arrayen har ej videoId
             // browseId:"",
             // type:"",
@@ -19,30 +20,25 @@ const store = createStore({
             // type:{
             //     //name:"",
             // },
+            }
          ],
-         song:{
-             artist:{
-                 name:"",
-                 browseId: "",
-             }
-         },
+         song:[{
+             name: "",
+         }],
          artists:{
-             products:{
-                 songs:{
-                     content:[{
-                         
-                     }]
-                 }
-             }
-
+             name:"",
 
          },
+         
+         artistSongs:[{
+            name: "",
+         }],
 
    },
    mutations:{
        fetchYouTubeApi(state, data){
             state.musicResults = data.content;
-            console.log(state.musicResults, 'RandomInfo')
+            console.log(state.musicResults, 'musicResults state')
        },
        fetchYouTubeArtistApi(state, data){
            state.musicResults.content.artist = data;
@@ -52,17 +48,18 @@ const store = createStore({
            state.musicResults.content.album = data;
            console.log(state.musicResults.album)
        },
-    //    fetchCurrentSong(state, data){
-    //        state.musicResults.content = data
-    //        console.log(state.musicResults.content, 'random')
-    //    },
+    
        setCurrentSong(state, song){
            state.song = song.content[0];
        },
        setCurrentArtist(state, artists){
            state.artists = artists;
-           console.log(state.artists)
-       }
+           console.log(state.artists, 'nuvarande artist', state.artists.name)
+       },
+       setArtistSongs(state, artistSongs){
+        state.artistSongs = artistSongs;
+        console.log(artistSongs, 'här är artistens låtar')
+       },
 
 
    },
@@ -78,6 +75,18 @@ const store = createStore({
             console.log(data)
         },
 
+        async fetchAllArtistSongs({commit}, bandName){
+            let response = await fetch(
+                `https://yt-music-api.herokuapp.com/api/yt/songs/${bandName}`
+            )
+
+            let data = await response.json()
+
+            commit('setArtistSongs', data)
+
+            
+        },
+
         async fetchYouTubeArtistApi({commit}, bId){
             let response = await fetch
             (`https://yt-music-api.herokuapp.com/api/yt/artist/${bId}`)
@@ -85,7 +94,7 @@ const store = createStore({
 
             commit('setCurrentArtist', data)
 
-            console.log(data)
+            console.log(data, 'fetchAction')
         },
 
         async fetchCurrentSong({commit}, vId){
@@ -97,6 +106,12 @@ const store = createStore({
 
             console.log(data)
         },
+
+
+
+
+
+
 
         // async fetchYouTubeAlbumApi({commit}, bId){
         //     let response = await fetch

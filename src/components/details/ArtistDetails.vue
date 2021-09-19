@@ -2,56 +2,70 @@
     <div>
         <h1>Artist view</h1>
         <div>
-            {{getArtistInfo.name}}
             
-            {{bId}}
-
-            <div id="artistSongLoop" 
-            v-for="songs in getArtistSongs" :key="songs.videoId">
-            <div v-if="songs.artist.browseId === bId && songs.artist.name === getArtistInfo.name">
+            <h4>{{getArtistInfo.name}}</h4>
+            
+            <!-- {{bId}} -->
+            <div v-for="o in getArtistSongs" :key="o.videoId">
                 <p>
-                    {{songs.name}}
+                    
                 </p>
 
             </div>
 
-            </div>
-
+            
+            
         </div>
     </div>
 </template>
-
-
 <script>
-//import PlayArtistSong from '/src/components/PlayArtistSong.vue'
+
 
 
 export default {
     
-
     data(){
         return{
-            bId: this.$route.params.browseId
+            bId: this.$route.params.browseId,
         }
     },
-
     computed:{
         getArtistInfo(){
+            this.getAllArtistSongs()
             return this.$store.state.artists
         },
-        async getArtistSongs(){
-            return await this.$store.state.song
+        getArtistSongs(){
+            return this.$store.state.artistSongs
         }
+        // async getArtistSongs(){
+        //     console.log(this.$store.state.song)
+        //     return await this.$store.state.song
+        // },
+        
+    },
+
+    created(){
+        //this.getAllArtistSongs()
     },
 
     methods:{
-        getCurrentArtist(bId){
-        this.$store.dispatch('fetchYouTubeArtistApi', bId)
-      },
+    //     getCurrentArtist(bId){
+    //     console.log('Hämtar current artist')
+    //     this.$store.dispatch('fetchYouTubeArtistApi', bId)
+    //   },
 
-      getCurrentSong(vidId){
-        this.$store.dispatch('fetchCurrentSong', vidId)
+    //   getCurrentSong(vidId){
+    //       //this one doesnt work yet
+    //     this.$store.dispatch('fetchCurrentSong', vidId)
+    //   },
+
+      async getAllArtistSongs(bandName){
+            bandName = this.$store.state.artists.name
+           
+            console.log('Detta är bandets namn: ', bandName)
+             await this.$store.dispatch('fetchAllArtistSongs', bandName)
       },
+      
    },
     
 }

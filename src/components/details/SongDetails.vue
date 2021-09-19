@@ -6,7 +6,8 @@
                 
                  <p>
                      {{getSongInfo.artist.name}} + 
-                     {{getSongInfo.name}} + 
+                     
+                     <!-- {{getSongInfo.name}} +  -->
                      <!-- {{vidId}} -->
                  </p>
                 <button @click="playSong(vidId)">Play</button>
