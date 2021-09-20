@@ -6,7 +6,7 @@
                 {{vidId}}
                 
                  <p>
-                     {{getSongInfo.artist.name}} + 
+                     {{getSongInfo.artist.name}}
                      
                      <!-- {{getSongInfo.name}} +  -->
                      <!-- {{vidId}} -->
@@ -44,11 +44,10 @@ export default {
 
 methods:{
       getCurrentSong(vidId){
-        this.$store.dispatch('fetchCurrentSong', this.vidId)
+        this.$store.dispatch('fetchCurrentSong', vidId)
       },
-
       playSong(vidId){
-       window.player.loadVideoById(this.vidId)
+       window.player.loadVideoById(vidId)
        window.player.playVideo()
       },
         pauseSong(){

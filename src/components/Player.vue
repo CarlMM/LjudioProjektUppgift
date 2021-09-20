@@ -11,14 +11,14 @@ export default {
   methods:{
     play(id){
       // calling global variable
-      window.player.loadVideoById(id)
-      window.player.playVideo()
+      player.loadVideoById(id)
+      player.playVideo()
     },
     pause(){
-      window.player.pauseVideo()
+      player.pauseVideo()
     },
     myVolume(){
-        window.player.setVolume()
+        player.setVolume()
     }
   }
 }
