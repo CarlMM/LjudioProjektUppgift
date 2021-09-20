@@ -44,12 +44,7 @@ export default {
         getYTSongs: function(){
             return this.$store.state.musicResults;
         },
-        // getYtArtists: function(){
-        //     return this.$store.state.musicResults.content.artist;
-        // },
-        // getYtAlbums: function(){
-        //     return this.$store.state.musicResults.content.album;
-        // }
+        
     },
 
     methods:{
@@ -63,12 +58,7 @@ export default {
             
         },
 
-    //     async getAllArtistSongs(bName){
-    //         bName = this.bandName
-           
-    //         console.log('Detta är bandets namn: ', bName)
-    //          await this.$store.dispatch('fetchAllArtistSongs', bName)
-    //   },
+    
     }
 
 

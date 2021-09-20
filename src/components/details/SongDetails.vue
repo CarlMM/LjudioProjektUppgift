@@ -33,7 +33,7 @@ export default {
     data(){
         return{
             vidId: (this.$route.params.videoId),
-            inputRange: 5,
+            inputRange: 3,
 
         }
     },
@@ -42,7 +42,7 @@ export default {
         this.$store.dispatch('fetchCurrentSong', this.vidId)
     },
 
-methods:{
+    methods:{
       getCurrentSong(vidId){
         this.$store.dispatch('fetchCurrentSong', vidId)
       },
@@ -57,11 +57,11 @@ methods:{
         window.player.setVolume(inputRange)
         },
 
-   },
+     },
 
    
    
- }
+}
 
 </script>
 

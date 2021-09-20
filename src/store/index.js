@@ -5,21 +5,7 @@ const store = createStore({
         musicResults:
             [
              {
-             //name:"",
-            // //videoId:"", //Osäkert, vissa objekt i arrayen har ej videoId
-            // browseId:"",
-            // type:"",
-            // album:{
-            //     name:"",
-            //     browseId:"",
-            // },
-            // artist:{
-            //     name:"",
-            //     browseId:"",
-            // },
-            // type:{
-            //     //name:"",
-            // },
+             
             }
          ],
          song:[{

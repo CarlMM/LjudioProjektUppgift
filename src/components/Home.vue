@@ -9,7 +9,7 @@
               <option :value="'artists'">Artist</option>
               <option :value="'albums'">Album</option>
             </select>
-        </div>
+        </div>   
         <button @click="getMusic(searchObj)">Search</button>
 
 
@@ -55,11 +55,11 @@ export default {
 
   },
 
-  computed:{
-    getYTMusic(){
-      return this.$store.state.musicResult.content
-    }
-  }
+  // computed:{
+  //   getYTMusic(){
+  //     return this.$store.state.musicResult.content
+  //   }
+  // }
 
 }
 </script>
