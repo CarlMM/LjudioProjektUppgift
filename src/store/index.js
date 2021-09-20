@@ -24,6 +24,9 @@ const store = createStore({
          ],
          song:[{
              name: "",
+             artist:{
+                 name:""
+             }
          }],
          artists:{
              name:"",

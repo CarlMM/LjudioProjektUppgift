@@ -10,16 +10,15 @@
             
             <!-- {{bId}} -->
             <div v-for="o in getArtistSongs" :key="o.videoId">
-                <div v-if="o.artist.browseId === this.bId">
+                <div>
                     <p>
-                        {{o.name}}
-                        {{o.artist.name}}
+                        {{o.name}} - Artist {{o.artist.name}} - videoId {{o.videoId}}
                     </p>
                 </div>
 
             </div>
 
-            
+            <!-- v-if="o.artist.browseId === this.bId" -->
             
         </div>
     </div>
@@ -48,7 +47,7 @@ export default {
     },
 
     created(){
-        
+        this.$store.dispatch('fetchYouTubeArtistApi', this.bId)
     },
 
     methods:{
@@ -67,3 +66,8 @@ export default {
 </script>
 
 
+<style>
+@import '/src/assets/style.css';
+
+
+</style>

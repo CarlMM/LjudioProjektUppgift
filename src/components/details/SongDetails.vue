@@ -3,6 +3,7 @@
         <h1>Song Details</h1>
             <p>Videon/låten tänkt spelat här</p>
             <div>
+                {{vidId}}
                 
                  <p>
                      {{getSongInfo.artist.name}} + 
@@ -31,23 +32,27 @@ export default {
 
     data(){
         return{
-            vidId: this.$route.params.videoId,
+            vidId: (this.$route.params.videoId),
             inputRange: 5,
 
         }
     },
 
+    created(){
+        this.$store.dispatch('fetchCurrentSong', this.vidId)
+    },
+
 methods:{
       getCurrentSong(vidId){
-        this.$store.dispatch('fetchCurrentSong', vidId)
+        this.$store.dispatch('fetchCurrentSong', this.vidId)
       },
 
       playSong(vidId){
-       window.player.loadVideoById(vidId)
+       window.player.loadVideoById(this.vidId)
        window.player.playVideo()
       },
         pauseSong(){
-        window.player.pauseVideo()
+        window.player.pauseVideo(this.vidId)
         },
         changeVolume(inputRange){
         window.player.setVolume(inputRange)
@@ -60,3 +65,9 @@ methods:{
  }
 
 </script>
+
+<style>
+@import '/src/assets/style.css';
+
+
+</style>
