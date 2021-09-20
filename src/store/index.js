@@ -29,10 +29,12 @@ const store = createStore({
             state.musicResults = data.content;
             console.log(state.musicResults, 'musicResults state')
        },
-       fetchYouTubeArtistApi(state, data){
-           state.musicResults.content.artist = data;
-           console.log(state.musicResults.artist)
-       },
+    //    fetchYouTubeArtistApi(state, data){
+    //        state.musicResults.content.artist = data;
+    //        console.log(state.musicResults.artist)
+    //    },
+
+    //används inte pga kravet inte är kvar
        fetchYouTubeAlbumApi(state,data){
            state.musicResults.content.album = data;
            console.log(state.musicResults.album)

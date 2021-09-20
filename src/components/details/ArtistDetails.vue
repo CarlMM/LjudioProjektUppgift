@@ -9,7 +9,7 @@
                 {{bId}}
             </p>
             
-            <!-- {{bId}} -->
+            
             <div v-for="o in getArtistSongs" :key="o.videoId">
                 <div>
                     <p>
@@ -24,7 +24,7 @@
 
             
 
-            <!-- v-if="o.artist.browseId === this.bId" -->
+            
             
         </div>
     </div>

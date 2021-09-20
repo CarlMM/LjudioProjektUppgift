@@ -1,7 +1,9 @@
 <template>
     <div>
         <div id="ljudioLogo">
-            <img src="/src/assets/ljudioLogo2.png"/>
+          
+            <img @click="linkToHome()" src="/src/assets/ljudioLogo2.png"/>
+            
         </div>
         <nav>
             <a href="/">Home</a>
@@ -10,3 +12,17 @@
         </nav>
     </div>
 </template>
+
+
+<script>
+export default {
+    
+    methods:{
+        linkToHome(){
+            this.$router.push('/')
+        }
+    }
+
+
+}
+</script>
