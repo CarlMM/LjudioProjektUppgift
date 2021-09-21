@@ -9,17 +9,20 @@ const store = createStore({
             }
          ],
          song:[{
-             name: "",
+             //name: "",
              artist:{
-                 name:""
+                 name:'',
              }
          }],
          artists:{
-             name:"",
+             name:'',
 
          },
          
          artistSongs:[{
+             artist:{
+                 name:'',
+             },
 
          }],
 
@@ -42,6 +45,7 @@ const store = createStore({
     
        setCurrentSong(state, song){
            state.song = song.content[0];
+           console.log(song, 'setCurrentSongMutation')
        },
        setCurrentArtist(state, artists){
            state.artists = artists;

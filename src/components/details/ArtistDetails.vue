@@ -2,7 +2,7 @@
     <div>
         <h1>Artist view</h1>
         <div>
-            
+            <button @click="copyToClipboard()">Share Artist</button>
             <h4>{{getArtistInfo.name}}</h4>
             
             <p>
@@ -14,14 +14,14 @@
                 <div>
                     <p>
                         {{o.name}} - Artist {{o.artist.name}} - videoId {{o.videoId}}
+                        <button @click="setSongInfo(o.videoId)">Play Song</button>
                     </p>
-                <button @click="playSong(o.videoId)">Play</button>
-                <button @click="pauseSong()">Pause</button>
-                <input @change="changeVolume(inputRange)" type="range" min="0" max="100" v-model='inputRange'>
                 </div>
 
             </div>
-
+            
+                <media-player/>
+            
             
 
             
@@ -30,11 +30,18 @@
     </div>
 </template>
 <script>
-
+import MediaPlayer from '../MediaPlayer.vue'
 
 
 export default {
-    
+
+
+    components:{
+        MediaPlayer,
+    },
+
+
+
     data(){
         return{
             bId: this.$route.params.browseId,
@@ -48,6 +55,9 @@ export default {
         },
         getArtistSongs(){
             return this.$store.state.artistSongs
+        },
+        getAllSongs(){
+            return this.$store.state.song
         }
        
         
@@ -58,6 +68,15 @@ export default {
     },
 
     methods:{
+
+        copyToClipboard(){
+            navigator.clipboard.writeText(`http://localhost:3000/artistdetails/${this.bId}`)
+            alert('Link copied to clipboard!')
+        },
+
+        setSongInfo(vidId){
+            this.$store.dispatch('fetchCurrentSong', vidId)
+        },
  
 
       async getAllArtistSongs(bandName){
@@ -72,7 +91,7 @@ export default {
        window.player.playVideo()
         },
         pauseSong(){
-        window.player.pauseVideo(this.vidId)
+        window.player.pauseVideo()
         },
         changeVolume(inputRange){
         window.player.setVolume(inputRange)

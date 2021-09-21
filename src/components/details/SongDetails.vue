@@ -1,18 +1,19 @@
 <template>
     <div>
         <h1>Song Details</h1>
-            <p>Videon/låten tänkt spelat här</p>
+            <button @click="copyToClipboard">Share song</button>
             <div>
                 {{vidId}}
                 
                  <p>
                      {{getSongInfo.artist.name}}
+                     {{getSongInfo.name}}
                      
                      <!-- {{getSongInfo.name}} +  -->
                      <!-- {{vidId}} -->
                  </p>
                 <button @click="playSong(vidId)">Play</button>
-                <button @click="pauseSong()">Pause</button>
+                <button @click="pauseSong()">Stop</button>
                 <input @change="changeVolume(inputRange)" type="range" min="0" max="100" v-model='inputRange'>
             </div>
         
@@ -27,8 +28,12 @@ export default {
     computed:{
     getSongInfo(){
         return this.$store.state.song
-        }
+        },
+
+    getArtistSongInfo(){
+
     },
+ },
 
     data(){
         return{
@@ -43,9 +48,15 @@ export default {
     },
 
     methods:{
-      getCurrentSong(vidId){
+
+        copyToClipboard(){
+            navigator.clipboard.writeText(`http://localhost:3000/songdetails/${this.vidId}`)
+            alert('Link copied to clipboard!')
+        },
+
+        getCurrentSong(vidId){
         this.$store.dispatch('fetchCurrentSong', vidId)
-      },
+        },
       playSong(vidId){
        window.player.loadVideoById(vidId)
        window.player.playVideo()
