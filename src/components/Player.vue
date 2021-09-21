@@ -19,6 +19,15 @@ export default {
     },
     myVolume(){
         player.setVolume()
+    },
+    nextSong(){
+      player.nextVideo()
+    },
+    previousSong(){
+      player.previousVideo()
+    },
+    loadPlaylist(){
+      player.loadPlaylist()
     }
   }
 }

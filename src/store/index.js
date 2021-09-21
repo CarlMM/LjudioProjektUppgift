@@ -26,8 +26,20 @@ const store = createStore({
 
          }],
 
+         artistSongPlaylist:[{
+            
+         }]
+
    },
    mutations:{
+
+    setArtistSongPlaylist(state, data){
+        state.setArtistSongPlaylist = data;
+        console.log('setArtistSongPlaylist mutation', data)
+        console.log(state.setArtistSongPlaylist)
+    },
+
+
        fetchYouTubeApi(state, data){
             state.musicResults = data.content;
             console.log(state.musicResults, 'musicResults state')

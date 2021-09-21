@@ -3,6 +3,7 @@
         <h1>Artist view</h1>
         <div>
             <button @click="copyToClipboard()">Share Artist</button>
+            <!-- <button @click="getVideoIdFromArtistSong()">Ladda in playlist</button> -->
             <h4>{{getArtistInfo.name}}</h4>
             
             <p>
@@ -14,7 +15,7 @@
                 <div>
                     <p>
                         {{o.name}} - Artist {{o.artist.name}} - videoId {{o.videoId}}
-                        <button @click="setSongInfo(o.videoId)">Play Song</button>
+                        <!-- <button @click="setSongInfo(o.videoId)">Play Song</button> -->
                     </p>
                 </div>
 
@@ -51,6 +52,7 @@ export default {
     computed:{
         getArtistInfo(){
             this.getAllArtistSongs()
+            
             return this.$store.state.artists
         },
         getArtistSongs(){
@@ -63,11 +65,32 @@ export default {
         
     },
 
+    
+
     created(){
         this.$store.dispatch('fetchYouTubeArtistApi', this.bId)
+        //this.getVideoIdFromArtistSong()
+        
     },
 
     methods:{
+        
+
+        // async getVideoIdFromArtistSong(){
+        //      let everyVidId = []
+        //     this.getArtistSongs.map(songId => {
+        //      everyVidId = [...everyVidId,songId.videoId]
+
+        //     })
+        //     console.log('varje videoID',everyVidId)
+        //     await this.$store.commit('setArtistSongPlaylist', everyVidId)
+        //     window.player.loadPlaylist(everyVidId)
+            
+        // },
+
+        // loadMyPlaylist(){
+        //  window.player.loadPlaylist(getArtistPlaylist())
+        // },
 
         copyToClipboard(){
             navigator.clipboard.writeText(`http://localhost:3000/artistdetails/${this.bId}`)
@@ -77,6 +100,7 @@ export default {
         setSongInfo(vidId){
             this.$store.dispatch('fetchCurrentSong', vidId)
         },
+        
  
 
       async getAllArtistSongs(bandName){
