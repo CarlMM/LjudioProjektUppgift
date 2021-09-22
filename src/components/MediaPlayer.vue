@@ -1,22 +1,30 @@
 <template>
-  <div>
+  <div id="mediaPlayerDiv">
     <div>
       <h5>Artist:</h5>
-
-      <p v-if="getArtistPlaylist.artist">
-        {{ getArtistPlaylist.artist.name }}
-      </p>
+        <p v-if="this.pressedPlay === true">
+          {{getArtistInfo.name}}
+        </p>
+        
     </div>
     <div>
       <h5>Låtnamn:</h5>
-      {{ getArtistPlaylist.name }}
+      <div v-for="arr in this.arrayOfSongsVideoId" :key="arr">
+        <p v-if="arr === getArtistSongs.videoId">
+          {{arr}}
+        </p>
+            
+          
+
+               
+      </div>
     </div>
 
     <p>
       
-      {{getArtistPlaylist}}
+     
     </p>
-    <button @click="getVideoIdFromArtistSong()">Ladda in spellista</button>
+    <!-- <button @click="getVideoIdFromArtistSong()">Ladda in spellista</button> -->
     <input
       @change="changeVolume(inputRange)"
       type="range"
@@ -47,21 +55,28 @@ export default {
       inputRange: 2,
       isPlaying: false,
       arrayOfSongsVideoId: [],
+      pressedPlay: false,
     };
   },
 
 
-    created(){
-      this.getVideoIdFromArtistSong();
+    watch:{
+      getArtistSongs(){
+        if(this.getArtistSongs.length > 0){
+          this.getVideoIdFromArtistSong()
+        }
+      }
     },
-
 
     computed: {
-    getSongInfo() {
-      return this.$store.state.song;
+     getSongInfo() {
+       return this.$store.state.song;
     },
-    getArtistSongs() {
-      return this.$store.state.artistSongs;
+    getArtistInfo(){
+            return this.$store.state.artists
+      },
+     getArtistSongs() {
+       return this.$store.state.artistSongs;
     },
     getArtistPlaylist() {
       return this.$store.state.artistSongPlaylist;
@@ -79,21 +94,20 @@ export default {
     //   window.player.loadPlaylist(everyVidId);
     // },
 
-    getVideoIdFromArtistSong() {
+    async getVideoIdFromArtistSong() {
 
-      for(let i = 0; i < this.getArtistSongs.length; ++i){
-         this.arrayOfSongsVideoId.push(this.getArtistSongs[i].videoId)
+        for(let i = 0; i < this.getArtistSongs.length; ++i){
+         await this.arrayOfSongsVideoId.push(this.getArtistSongs[i].videoId)
+        
       }
-      console.log(this.arrayOfSongsVideoId)
-
+      console.log('alla videoId från artist', this.arrayOfSongsVideoId)
     },
 
     loadMyPlaylist() {
       window.player.loadPlaylist();
     },
-
     playSong() {
-
+      this.pressedPlay = true;
       if(!this.isPlaying){
         window.player.loadPlaylist(this.arrayOfSongsVideoId)
         this.isPlaying = true;
@@ -106,6 +120,7 @@ export default {
     },
 
     pauseSong() {
+      this.pressedPlay = false;
       window.player.pauseVideo();
     },
 
@@ -113,7 +128,7 @@ export default {
       window.player.setVolume(inputRange);
     },
     playNextSong() {
-      console.log("Nästa låt");
+      console.log("Nästa låt", this.arrayOfSongsVideoId);
       window.player.nextVideo();
     },
     playPreviousSong() {

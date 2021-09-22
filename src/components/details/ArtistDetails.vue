@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="artistViewDiv">
         <h1>Artist view</h1>
         <div>
             <button @click="copyToClipboard()">Share Artist</button>
@@ -52,7 +52,6 @@ export default {
     computed:{
         getArtistInfo(){
             this.getAllArtistSongs()
-            
             return this.$store.state.artists
         },
         getArtistSongs(){
@@ -101,12 +100,10 @@ export default {
             this.$store.dispatch('fetchCurrentSong', vidId)
         },
         
- 
-
-      async getAllArtistSongs(bandName){
+        async getAllArtistSongs(bandName){
             bandName = this.$store.state.artists.name
            
-            console.log('Detta är bandets namn: ', bandName)
+            //console.log('Detta är bandets namn: ', bandName)
              await this.$store.dispatch('fetchAllArtistSongs', bandName)
         },
 

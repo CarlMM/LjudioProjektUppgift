@@ -62,7 +62,7 @@ const store = createStore({
        },
        setCurrentArtist(state, artists){
            state.artists = artists;
-           console.log(state.artists, 'nuvarande artist', state.artists.name)
+           console.log(state.artists, 'artist state nuvarande artist', state.artists.name)
        },
        setArtistSongs(state, artistSongs){
         state.artistSongs = artistSongs.content;
@@ -102,7 +102,7 @@ const store = createStore({
 
             commit('setCurrentArtist', data)
 
-            console.log(data, 'fetchAction')
+            console.log(data, 'Artist fetchAction')
         },
 
         async fetchCurrentSong({commit}, vId){

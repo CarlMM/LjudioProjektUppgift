@@ -3,7 +3,7 @@
         <h1>HomeView</h1>
         <div>
           <h4>Search for {{searchObj.whatSearch}}</h4>
-          <input type="text" placeholder="Search..." v-model='searchObj.searchString'>
+          <input id="searchInput" type="text" placeholder="Search..." v-model='searchObj.searchString'>
             <select name="searchOption" id="searchOption" v-model='searchObj.whatSearch'>
               <option :value="'songs'">Song</option>
               <option :value="'artists'">Artist</option>
