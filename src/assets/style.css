@@ -21,7 +21,7 @@ p{
 
 
 #ljudioLogo > img{
-    width: 50vw;
+    width: 35vw;
 }
 
 nav{
@@ -48,28 +48,65 @@ nav > a{
 }
 
 .mainDivHome > h1{
-    /* width: 70%;
-    font-size: 5vh; */
+    width: 70%;
+    font-size: 5vh;
 }
 
-#searchInput{
-    width: 20vw;
-}
 
 .mainDivHome > div > #searchInput{
-    /* width: 30vw;
-    font-size: 50vh; */
-    /* height: 2vh;
-    width: 20vw; */
+    width: 30vw;
+    height: 1.5vh;
+    
 }
 
-.mainDivHome > button{
-    /* height: 5vh; */
+#searchBtn{
+    height: 3vh;
+}
+
+@media screen and (max-width: 800px){
+    #searchBtn{
+        height: 5vh;
+    }
 }
 
 .mainDivHome > div> select{
-    /* font-size: 1.8vh; */
+    font-size: 1.6vh;
 }
+
+#playPauseBtnDiv > button{
+    margin: 2px;
+}
+
+/* #songLoop{
+    display:grid;
+} */
+
+
+#songDetailsDiv{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+#songDetailsDiv > div > #shareButton{
+    
+    width: 8vw;
+}
+
+@media screen and (max-width: 600px){
+    #songDetailsDiv > div > #shareButton{
+        width: 40vw;
+        font-size: calc(16px + 0.1vw);
+    }
+}
+
+@media screen and (max-width: 200px){
+    #songDetailsDiv > div > #shareButton{
+        width: 40vw;
+        font-size: calc(10px + 0.1vw);
+    }
+}
+
 
 
 #artistViewDiv{

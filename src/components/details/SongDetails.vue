@@ -1,27 +1,32 @@
 <template>
-    <div>
+    <div id="songDetailsDiv">
         <h1>Song Details</h1>
-            <button @click="copyToClipboard">Share song</button>
+            <div><button id="shareButton" @click="copyToClipboard">Share song</button></div>
             <div>
-                {{vidId}}
-                
-                 <p>
-                     {{getSongInfo.artist.name}}
-                     {{getSongInfo.name}}
-                     
-                     <!-- {{getSongInfo.name}} +  -->
-                     <!-- {{vidId}} -->
-                 </p>
-                <button @click="playSong()">Play</button>
-                <button @click="pauseSong()">Pause</button>
-                <input @change="changeVolume(inputRange)" type="range" min="0" max="100" v-model='inputRange'>
+                    <p>
+                     Artist: {{getSongInfo.artist.name}}
+                     </p>
+                     <p>
+                         Låt: {{getSongInfo.name}}
+                    </p>
+                    
+                 
+                <div id="playPauseBtnDiv">
+                    <button @click="playSong()">Play <i class="fa fa-play" aria-hidden="true"></i></button>
+                    <button @click="pauseSong()">Pause <i class="fa fa-pause" aria-hidden="true"></i></button>
+                    <div>
+                        <p>
+                            Volym: {{this.inputRange}}
+                        </p>
+                        <input @change="changeVolume(inputRange)" type="range" min="0" max="100" v-model='inputRange'>
+                        </div>
+                </div>
             </div>
         
     </div>
 </template>
 
 <script>
-//metod som returnerar https://www.youtube.com/watch?v={vId}
 
 export default {
 
@@ -39,27 +44,29 @@ export default {
         return{
             vidId: (this.$route.params.videoId),
             inputRange: 3,
+            isPlayingSong: false,
 
         }
     },
-
     created(){
         this.$store.dispatch('fetchCurrentSong', this.vidId)
     },
-
     methods:{
-
         copyToClipboard(){
             navigator.clipboard.writeText(`http://localhost:3000/songdetails/${this.vidId}`)
             alert('Link copied to clipboard!')
         },
-
         getCurrentSong(vidId){
         this.$store.dispatch('fetchCurrentSong', vidId)
         },
       playSong(){
-       window.player.loadVideoById(this.vidId)
-       window.player.playVideo()
+         if(this.isPlayingSong === false){
+             this.isPlayingSong = true;
+             window.player.loadVideoById(this.vidId)
+         } 
+       else if(this.isPlayingSong === true){
+        window.player.playVideo()
+       }
       },
         pauseSong(){
         window.player.pauseVideo()

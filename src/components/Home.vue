@@ -10,7 +10,7 @@
               <option :value="'albums'">Album</option>
             </select>
         </div>   
-        <button @click="getMusic(searchObj)">Search</button>
+        <button id="searchBtn" @click="getMusic(searchObj)">Search</button>
 
 
 

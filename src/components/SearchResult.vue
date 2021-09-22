@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="searchResultDiv">
         <h3>SearchResult</h3>
         
             <div id="songLoop"
