@@ -6,26 +6,16 @@
             <!-- <button @click="getVideoIdFromArtistSong()">Ladda in playlist</button> -->
             <h4>{{getArtistInfo.name}}</h4>
             
-            <p>
-                {{bId}}
-            </p>
-            
-            
             <div v-for="o in getArtistSongs" :key="o.videoId">
                 <div>
                     <p>
-                        {{o.name}} - Artist {{o.artist.name}} - videoId {{o.videoId}}
-                        <!-- <button @click="setSongInfo(o.videoId)">Play Song</button> -->
+                        {{o.name}} - Artist {{o.artist.name}}
+                        
                     </p>
                 </div>
 
             </div>
-            
                 <media-player/>
-            
-            
-
-            
             
         </div>
     </div>
@@ -36,12 +26,9 @@ import MediaPlayer from '../MediaPlayer.vue'
 
 export default {
 
-
     components:{
         MediaPlayer,
     },
-
-
 
     data(){
         return{
@@ -60,11 +47,8 @@ export default {
         getAllSongs(){
             return this.$store.state.song
         }
-       
         
     },
-
-    
 
     created(){
         this.$store.dispatch('fetchYouTubeArtistApi', this.bId)
@@ -73,23 +57,6 @@ export default {
     },
 
     methods:{
-        
-
-        // async getVideoIdFromArtistSong(){
-        //      let everyVidId = []
-        //     this.getArtistSongs.map(songId => {
-        //      everyVidId = [...everyVidId,songId.videoId]
-
-        //     })
-        //     console.log('varje videoID',everyVidId)
-        //     await this.$store.commit('setArtistSongPlaylist', everyVidId)
-        //     window.player.loadPlaylist(everyVidId)
-            
-        // },
-
-        // loadMyPlaylist(){
-        //  window.player.loadPlaylist(getArtistPlaylist())
-        // },
 
         copyToClipboard(){
             navigator.clipboard.writeText(`http://localhost:3000/artistdetails/${this.bId}`)

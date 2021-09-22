@@ -9,14 +9,10 @@
     </div>
     <div>
       <h5>Låtnamn:</h5>
-      <div v-for="arr in this.arrayOfSongsVideoId" :key="arr">
-        <p v-if="arr === getArtistSongs.videoId">
-          {{arr}}
-        </p>
-            
-          
-
-               
+      <div>
+          <p v-if="this.pressedPlay === true">
+            {{this.getSongNameIndex}}
+          </p>
       </div>
     </div>
 
@@ -55,6 +51,8 @@ export default {
       inputRange: 2,
       isPlaying: false,
       arrayOfSongsVideoId: [],
+      arrayOfSongsNameAndId: [],
+      atIndex: 0,
       pressedPlay: false,
     };
   },
@@ -64,6 +62,7 @@ export default {
       getArtistSongs(){
         if(this.getArtistSongs.length > 0){
           this.getVideoIdFromArtistSong()
+          //this.getSongNameIndex()
         }
       }
     },
@@ -81,6 +80,10 @@ export default {
     getArtistPlaylist() {
       return this.$store.state.artistSongPlaylist;
     },
+    getSongNameIndex(){
+      if(this.arrayOfSongsNameAndId.length > 0)
+      return this.arrayOfSongsNameAndId[this.atIndex].name
+    }
   },
 
   methods: {
@@ -96,10 +99,16 @@ export default {
 
     async getVideoIdFromArtistSong() {
 
-        for(let i = 0; i < this.getArtistSongs.length; ++i){
+      for(let i = 0; i < this.getArtistSongs.length; ++i){
          await this.arrayOfSongsVideoId.push(this.getArtistSongs[i].videoId)
         
       }
+
+       for(let i = 0; i < this.getArtistSongs.length; ++i){
+        await this.arrayOfSongsNameAndId.push({name: this.getArtistSongs[i].name})
+       }
+
+      console.log(this.arrayOfSongsNameAndId)
       console.log('alla videoId från artist', this.arrayOfSongsVideoId)
     },
 
@@ -113,6 +122,7 @@ export default {
         this.isPlaying = true;
 
       }
+      
       window.player.playVideo();
     },
     loadMyPlaylist() {
@@ -129,10 +139,14 @@ export default {
     },
     playNextSong() {
       console.log("Nästa låt", this.arrayOfSongsVideoId);
+      console.log(window.player.getPlaylistIndex())
+      this.atIndex += 1;
       window.player.nextVideo();
+      
     },
     playPreviousSong() {
       console.log("Föregående låt");
+      this.atIndex -= 1;
       window.player.previousVideo();
     },
   },
