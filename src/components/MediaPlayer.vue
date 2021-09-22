@@ -21,6 +21,9 @@
      
     </p>
     <!-- <button @click="getVideoIdFromArtistSong()">Ladda in spellista</button> -->
+    <p>
+      Volume: {{this.inputRange}}
+    </p>
     <input
       @change="changeVolume(inputRange)"
       type="range"
