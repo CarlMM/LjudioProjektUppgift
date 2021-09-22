@@ -17,15 +17,12 @@
         <div v-if="ifSearched">
           <search-result/>
         </div>
-
   </div>
 </template>
 
 
 <script>
 import SearchResult from './SearchResult.vue'
-
-
 
 export default {
     
@@ -42,14 +39,19 @@ export default {
 
   components:{
     SearchResult,
-    
   },
 
   methods:{
 
       async getMusic(searchObj){
+
+        if(searchObj.searchString === ''){
+          alert('Search is empty!')
+        }
+        else{
         this.ifSearched = true
         return await this.$store.dispatch('fetchYouTubeApi', searchObj)
+        }
         
       },
 
