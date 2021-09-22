@@ -12,8 +12,8 @@
                      <!-- {{getSongInfo.name}} +  -->
                      <!-- {{vidId}} -->
                  </p>
-                <button @click="playSong(vidId)">Play</button>
-                <button @click="pauseSong()">Stop</button>
+                <button @click="playSong()">Play</button>
+                <button @click="pauseSong()">Pause</button>
                 <input @change="changeVolume(inputRange)" type="range" min="0" max="100" v-model='inputRange'>
             </div>
         
@@ -57,12 +57,12 @@ export default {
         getCurrentSong(vidId){
         this.$store.dispatch('fetchCurrentSong', vidId)
         },
-      playSong(vidId){
-       window.player.loadVideoById(vidId)
+      playSong(){
+       window.player.loadVideoById(this.vidId)
        window.player.playVideo()
       },
         pauseSong(){
-        window.player.pauseVideo(this.vidId)
+        window.player.pauseVideo()
         },
         changeVolume(inputRange){
         window.player.setVolume(inputRange)

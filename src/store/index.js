@@ -27,6 +27,7 @@ const store = createStore({
          }],
 
          artistSongPlaylist:[{
+             videoId: "",
             
          }]
 
