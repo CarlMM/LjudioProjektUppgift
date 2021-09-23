@@ -1,9 +1,9 @@
-#LjudioProject
+# LjudioProject
 
 _SchoolProject_
 _Musicplayer_
 
-##Technologies:
+## Technologies:
 
 ```
 Vue 3
@@ -11,18 +11,18 @@ Vue Vite
 Visual Studio Code
 ```
 
-##Project Setup
+## Project Setup
 
--Clone repo
--Ensure terminal is looking at the correct folder
--Run the following in the terminal
+- Clone repo
+- Ensure terminal is looking at the correct folder
+- Run the following in the terminal
 
 ```
 npm install
 npm run dev
 ```
 
-##GLHF
+## GLHF
 
 
 # Vue 3 + Vite
