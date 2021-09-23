@@ -16,8 +16,8 @@
       </div>
     </div>
   <!-- v-if="this.pressedPlay === true" -->
-    <div >
-      <p>
+    <div>
+      <p id="volumeP">
         Volume: {{this.inputRange}}
       </p>
       <input
