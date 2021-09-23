@@ -41,10 +41,10 @@ const store = createStore({
     },
 
 
-       fetchYouTubeApi(state, data){
+    fetchYouTubeApi(state, data){
             state.musicResults = data.content;
             console.log(state.musicResults, 'musicResults state')
-       },
+    },
 
     //används inte pga kravet inte är kvar
        fetchYouTubeAlbumApi(state,data){

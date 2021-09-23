@@ -46,8 +46,6 @@ export default {
         setArtistInfo(bId){
             this.$store.dispatch('fetchYouTubeArtistApi', bId)
         },
-    
     }
-
 }
 </script>
