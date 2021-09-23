@@ -56,18 +56,24 @@ nav > a{
 }
 
 
-.mainDivHome > div > #searchInput{
+.mainDivHome > div > div > #searchInput{
     width: 30vw;
-    height: 1.8vh;
+    height: 2.3vh;
 }
 
 
-#searchOption{
-    height: 2.5vh;
+.mainDivHome > div > div > #searchOption{
+    height: 2.8vh;
 }
 
 @media screen and (max-height: 600px){
-    #searchOption{
+    .mainDivHome > div > div > #searchOption{
+        height: 3.5vh;
+    }
+}
+
+@media screen and (max-height: 300px) and (max-width: 600px){
+    .mainDivHome > div > div > #searchOption{
         height: 3.5vh;
     }
 }
@@ -77,6 +83,12 @@ nav > a{
 }
 
 @media screen and (max-width: 800px){
+    #searchBtn{
+        height: 5vh;
+    }
+}
+
+@media screen and (max-height: 600px){
     #searchBtn{
         height: 5vh;
     }

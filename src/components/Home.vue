@@ -3,12 +3,14 @@
         <h1>HomeView</h1>
         <div>
           <h4>Search for {{searchObj.whatSearch}}</h4>
-          <input id="searchInput" type="text" placeholder="Search..." v-model='searchObj.searchString'>
-            <select name="searchOption" id="searchOption" v-model='searchObj.whatSearch'>
-              <option :value="'songs'">Song</option>
-              <option :value="'artists'">Artist</option>
-              <option :value="'albums'">Album</option>
-            </select>
+          <div>
+            <input id="searchInput" type="text" placeholder="Search..." v-model='searchObj.searchString'>
+              <select name="searchOption" id="searchOption" v-model='searchObj.whatSearch'>
+                <option :value="'songs'">Song</option>
+                <option :value="'artists'">Artist</option>
+                <option :value="'albums'">Album</option>
+              </select>
+          </div>
         </div>   
         <button id="searchBtn" @click="getMusic(searchObj)">Search</button>
         <div v-if="ifSearched">
