@@ -15,6 +15,7 @@ Visual Studio Code
 
 - Clone repo
 - Ensure terminal is looking at the correct folder
+- Open the terminal
 - Run the following in the terminal
 
 ```
