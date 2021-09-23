@@ -45,17 +45,12 @@ const store = createStore({
             state.musicResults = data.content;
             console.log(state.musicResults, 'musicResults state')
        },
-    //    fetchYouTubeArtistApi(state, data){
-    //        state.musicResults.content.artist = data;
-    //        console.log(state.musicResults.artist)
-    //    },
 
     //används inte pga kravet inte är kvar
        fetchYouTubeAlbumApi(state,data){
            state.musicResults.content.album = data;
            console.log(state.musicResults.album)
        },
-    
        setCurrentSong(state, song){
            state.song = song.content[0];
            console.log(song, 'setCurrentSongMutation')
@@ -87,12 +82,9 @@ const store = createStore({
             let response = await fetch(
                 `https://yt-music-api.herokuapp.com/api/yt/songs/${bandName}`
             )
-
             let data = await response.json()
 
             commit('setArtistSongs', data)
-
-            
         },
 
         async fetchYouTubeArtistApi({commit}, bId){
@@ -114,25 +106,6 @@ const store = createStore({
 
             console.log(data)
         },
-
-
-
-
-
-
-
-        // async fetchYouTubeAlbumApi({commit}, bId){
-        //     let response = await fetch
-        //     (`https://yt-music-api.herokuapp.com/api/yt/album/${bId}`)
-        //     let data = await response.json()
-
-        //     commit('fetchYouTubeAlbumApi', data)
-
-        //     console.log(data)
-        // },
-
-
-
    }
 })
 

@@ -11,9 +11,6 @@
             </select>
         </div>   
         <button id="searchBtn" @click="getMusic(searchObj)">Search</button>
-
-
-
         <div v-if="ifSearched">
           <search-result/>
         </div>
@@ -52,17 +49,8 @@ export default {
         this.ifSearched = true
         return await this.$store.dispatch('fetchYouTubeApi', searchObj)
         }
-        
       },
-
   },
-
-  // computed:{
-  //   getYTMusic(){
-  //     return this.$store.state.musicResult.content
-  //   }
-  // }
-
 }
 </script>
 

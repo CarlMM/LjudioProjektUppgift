@@ -34,11 +34,7 @@ export default {
     getSongInfo(){
         return this.$store.state.song
         },
-
-    getArtistSongInfo(){
-
     },
- },
 
     data(){
         return{
@@ -46,7 +42,6 @@ export default {
             inputRange: 3,
             isPlayingSong: false,
             songRoute: '/songdetails/',
-
         }
     },
     created(){
@@ -75,11 +70,7 @@ export default {
         changeVolume(inputRange){
         window.player.setVolume(inputRange)
         },
-
      },
-
-   
-   
 }
 
 </script>

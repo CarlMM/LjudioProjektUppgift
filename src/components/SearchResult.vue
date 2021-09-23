@@ -1,7 +1,6 @@
 <template>
     <div id="searchResultDiv">
         <h3>SearchResult</h3>
-        
             <div id="songLoop"
                     v-for="songs in getYTSongs"
                     :key="songs.videoId">
@@ -21,17 +20,12 @@
                         </router-link>
                     </div>
             </div>
-        
-        
     </div>
 </template>
 
 <script>
 
-
 export default {
-
-
 
     data(){
         return{
@@ -39,28 +33,21 @@ export default {
         }
     },
 
-
     computed:{
         getYTSongs: function(){
             return this.$store.state.musicResults;
         },
-        
     },
 
     methods:{
         setSongInfo(vidId){
             this.$store.dispatch('fetchCurrentSong', vidId)
         },
-
         setArtistInfo(bId){
             this.$store.dispatch('fetchYouTubeArtistApi', bId)
-            //this.getAllArtistSongs()
-            
         },
-
     
     }
-
 
 }
 </script>

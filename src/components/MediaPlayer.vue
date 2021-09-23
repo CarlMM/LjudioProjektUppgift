@@ -26,19 +26,17 @@
         v-model="inputRange"
       />
     </div>
-    <button @click="playSong()">Play</button>
-    <button @click="pauseSong()">Pause</button>
-    <button @click="playNextSong()">Nästa</button>
-    <button @click="playPreviousSong()">Föregående</button>
+    <div id="artistBtnDiv">
+      <button @click="playPreviousSong()">Previous <i class="fa fa-step-backward" aria-hidden="true"></i></button>
+      <button @click="playSong()">Play <i class="fa fa-play" aria-hidden="true"></i></button>
+      <button @click="pauseSong()">Pause <i class="fa fa-pause" aria-hidden="true"></i></button>
+      <button @click="playNextSong()">Next <i class="fa fa-step-forward" aria-hidden="true"></i></button>
+      
+    </div>
   </div>
 </template>
 
 <script>
-//Måste hämta artistSongs
-//Loopa igenom artistSongs
-//Hitta vilket Id man är på(?)
-//Nästa knappen får i++ (eventuellt i+1)
-//Föregående knappen får i-- (eventuellt i-1)
 
 export default {
   
@@ -84,27 +82,15 @@ export default {
   },
 
   methods: {
-    // async getVideoIdFromArtistSong() {
-    //   let everyVidId = [];
-    //   this.getArtistSongs.map((songId) => {
-    //     everyVidId = [...everyVidId, songId.videoId];
-    //   });
-    //   console.log("varje videoID", everyVidId);
-    //   await this.$store.commit("setArtistSongPlaylist", everyVidId);
-    //   window.player.loadPlaylist(everyVidId);
-    // },
-
     async getVideoIdFromArtistSong() {
 
       for(let i = 0; i < this.getArtistSongs.length; ++i){
          await this.arrayOfSongsVideoId.push(this.getArtistSongs[i].videoId)
         
       }
-
        for(let i = 0; i < this.getArtistSongs.length; ++i){
         await this.arrayOfSongsNameAndId.push({name: this.getArtistSongs[i].name})
        }
-
       console.log(this.arrayOfSongsNameAndId)
       console.log('alla videoId från artist', this.arrayOfSongsVideoId)
     },
@@ -117,9 +103,7 @@ export default {
       if(!this.isPlaying){
         window.player.loadPlaylist(this.arrayOfSongsVideoId)
         this.isPlaying = true;
-
       }
-      
       window.player.playVideo();
     },
     loadMyPlaylist() {
@@ -145,6 +129,7 @@ export default {
       console.log("Föregående låt");
       this.atIndex -= 1;
       window.player.previousVideo();
+      
     },
   },
 }

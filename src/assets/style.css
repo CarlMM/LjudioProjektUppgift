@@ -6,9 +6,7 @@ body{
     
 }
 #app{
-    /* margin: 0; */
-    /* min-height: 100vh; */
-    /* min-width: 100vw; */
+    
 }
 
 #ljudioLogo{
@@ -44,7 +42,6 @@ nav > a{
     position: relative;
     margin:auto;
     text-align: center;
-    
 }
 
 .mainDivHome > h1{
@@ -62,7 +59,6 @@ nav > a{
 .mainDivHome > div > #searchInput{
     width: 30vw;
     height: 1.8vh;
-    
 }
 
 
@@ -93,11 +89,6 @@ nav > a{
 #playPauseBtnDiv > button{
     margin: 2px;
 }
-
-/* #songLoop{
-    display:grid;
-} */
-
 
 #songDetailsDiv{
     display: flex;
@@ -180,4 +171,8 @@ nav > a{
 
 #volumeP{
     font-weight: bold;
+}
+
+#artistBtnDiv > button{
+    margin: 0.5vw
 }
