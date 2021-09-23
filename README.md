@@ -23,8 +23,6 @@ npm install
 npm run dev
 ```
 
-## GLHF
-
 
 # Vue 3 + Vite
 

@@ -65,6 +65,17 @@ nav > a{
     
 }
 
+
+#searchOption{
+    height: 2.5vh;
+}
+
+@media screen and (max-height: 600px){
+    #searchOption{
+        height: 3.5vh;
+    }
+}
+
 #searchBtn{
     height: 3vh;
 }
@@ -101,7 +112,7 @@ nav > a{
 
 @media screen and (max-width: 600px){
     #songDetailsDiv > div > #shareButton{
-        width: 40vw;
+        width: 25vw;
         font-size: calc(16px + 0.1vw);
     }
 }
