@@ -5,10 +5,6 @@ body{
     margin: 0;
     
 }
-p{
-    /* font-size: 2vh; */
-}
-
 #app{
     /* margin: 0; */
     /* min-height: 100vh; */
@@ -19,7 +15,6 @@ p{
     text-align: center;
 }
 
-
 #ljudioLogo > img{
     width: 35vw;
 }
@@ -29,7 +24,6 @@ nav{
     justify-content: center;
     padding-top: 2vh;
     font-size: 3.5vh;
-    
 }
 
 nav > a{
@@ -107,15 +101,55 @@ nav > a{
     }
 }
 
-
-
 #artistViewDiv{
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     text-align: center;
-    font-size: 2vh; */
+    font-size: 2vh;
 }
 
 #artistViewDiv > button{
     /* font-size: 1,8vh; */
+}
+
+@media screen and (max-width: 400px){
+    #artinstSongsLoop > p{
+        font-size: 16px;
+    }
+}
+
+#mediaPlayerDiv{
+    background-color: aquamarine;
+    max-height: 300px;
+    /* overflow-y: auto; */
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    height: 100%;
+    padding-bottom: 1.5vh;
+
+}
+
+
+
+
+#mediaPlayerDiv > #trackAndArtist{
+    display: flex;
+    
+}
+
+@media screen and (max-width: 400px){
+    #mediaPlayerDiv > #trackAndArtist{
+        
+        flex-direction: column;
+    }
+}
+
+#mediaPlayerDiv > #trackAndArtist > div{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: -1vh;
 }

@@ -1,36 +1,33 @@
 <template>
   <div id="mediaPlayerDiv">
-    <div>
-      <h5>Artist:</h5>
-        <p v-if="this.pressedPlay === true">
-          {{getArtistInfo.name}}
-        </p>
-        
-    </div>
-    <div>
-      <h5>Låtnamn:</h5>
+    <div id="trackAndArtist">
+      <!-- v-if="this.pressedPlay === true" -->
       <div>
-          <p v-if="this.pressedPlay === true">
-            {{this.getSongNameIndex}}
+        <h3>Artist:</h3>
+          <p>
+            {{getArtistInfo.name}}
           </p>
       </div>
+      <div>
+        <h3>Låtnamn:</h3>
+            <p>
+              {{this.getSongNameIndex}}
+            </p>
+      </div>
     </div>
-
-    <p>
-      
-     
-    </p>
-    <!-- <button @click="getVideoIdFromArtistSong()">Ladda in spellista</button> -->
-    <p>
-      Volume: {{this.inputRange}}
-    </p>
-    <input
-      @change="changeVolume(inputRange)"
-      type="range"
-      min="0"
-      max="100"
-      v-model="inputRange"
-    />
+  <!-- v-if="this.pressedPlay === true" -->
+    <div >
+      <p>
+        Volume: {{this.inputRange}}
+      </p>
+      <input
+        @change="changeVolume(inputRange)"
+        type="range"
+        min="0"
+        max="100"
+        v-model="inputRange"
+      />
+    </div>
     <button @click="playSong()">Play</button>
     <button @click="pauseSong()">Pause</button>
     <button @click="playNextSong()">Nästa</button>

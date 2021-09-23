@@ -6,13 +6,13 @@
             <!-- <button @click="getVideoIdFromArtistSong()">Ladda in playlist</button> -->
             <h4>{{getArtistInfo.name}}</h4>
             
-            <div v-for="o in getArtistSongs" :key="o.videoId">
-                <div>
+            <div id="artinstSongsLoop" v-for="o in getArtistSongs" :key="o.videoId">
+                
                     <p>
-                        {{o.name}} - Artist {{o.artist.name}}
+                        Track: {{o.name}} 
                         
                     </p>
-                </div>
+                
 
             </div>
                 <media-player/>
