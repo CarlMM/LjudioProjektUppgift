@@ -1,7 +1,6 @@
 <template>
   <div id="mediaPlayerDiv">
-    <div id="trackAndArtist">
-      <!-- v-if="this.pressedPlay === true" -->
+    <div v-if="this.pressedPlay === true"  id="trackAndArtist">
       <div>
         <h3>Artist:</h3>
           <p>
@@ -15,8 +14,7 @@
             </p>
       </div>
     </div>
-  <!-- v-if="this.pressedPlay === true" -->
-    <div>
+    <div v-if="this.pressedPlay === true" >
       <p id="volumeP">
         Volume: {{this.inputRange}}
       </p>
@@ -34,7 +32,6 @@
     <button @click="playPreviousSong()">Föregående</button>
   </div>
 </template>
-
 
 <script>
 //Måste hämta artistSongs

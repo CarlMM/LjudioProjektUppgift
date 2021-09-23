@@ -2,6 +2,7 @@
     <div id="artistViewDiv">
         <h1>Artist view</h1>
         <div>
+            
             <button @click="copyToClipboard()">Share Artist</button>
             <!-- <button @click="getVideoIdFromArtistSong()">Ladda in playlist</button> -->
             <h4>{{getArtistInfo.name}}</h4>
@@ -34,6 +35,7 @@ export default {
         return{
             bId: this.$route.params.browseId,
             inputRange: 5,
+            artistRoute: '/artistdetails/',
         }
     },
     computed:{
@@ -59,7 +61,7 @@ export default {
     methods:{
 
         copyToClipboard(){
-            navigator.clipboard.writeText(`http://localhost:3000/artistdetails/${this.bId}`)
+            navigator.clipboard.writeText(`${window.location.origin}` + `${this.artistRoute}` + `${this.bId}`)
             alert('Link copied to clipboard!')
         },
 

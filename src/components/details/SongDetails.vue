@@ -45,6 +45,7 @@ export default {
             vidId: (this.$route.params.videoId),
             inputRange: 3,
             isPlayingSong: false,
+            songRoute: '/songdetails/',
 
         }
     },
@@ -53,7 +54,7 @@ export default {
     },
     methods:{
         copyToClipboard(){
-            navigator.clipboard.writeText(`http://localhost:3000/songdetails/${this.vidId}`)
+            navigator.clipboard.writeText(`${window.location.origin}` + `${this.songRoute}` + `${this.vidId}`)
             alert('Link copied to clipboard!')
         },
         getCurrentSong(vidId){
