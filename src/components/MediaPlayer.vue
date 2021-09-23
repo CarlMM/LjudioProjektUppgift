@@ -127,6 +127,7 @@ export default {
     },
     playPreviousSong() {
       console.log("Föregående låt");
+      
       this.atIndex -= 1;
       window.player.previousVideo();
       
