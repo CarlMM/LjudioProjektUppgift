@@ -14,6 +14,7 @@ Visual Studio Code
 ## Project Setup
 
 - Clone repo
+- Open project in Visual Code
 - Open the terminal
 - Ensure terminal is looking at the correct folder
 - Run the following in the terminal
