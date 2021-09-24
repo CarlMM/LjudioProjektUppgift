@@ -5,9 +5,7 @@ body{
     margin: 0;
     
 }
-#app{
-    
-}
+
 
 #ljudioLogo{
     text-align: center;
@@ -134,11 +132,8 @@ nav > a{
     font-size: 2vh;
 }
 
-#artistViewDiv > button{
-    /* font-size: 1,8vh; */
-}
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 800px){
     #artinstSongsLoop > p{
         font-size: 16px;
     }
@@ -147,7 +142,7 @@ nav > a{
 #mediaPlayerDiv{
     border-top: black solid 2px;
     background-color: aquamarine;
-    max-height: 180px;
+    max-height: 200px;
     /* overflow-y: auto; */
     position: sticky;
     bottom: 0;

@@ -4,7 +4,7 @@
         <div>
             
             <button @click="copyToClipboard()">Share Artist</button>
-            <h4>{{getArtistInfo.name}}</h4>
+            <h2>{{getArtistInfo.name}}</h2>
             <div id="artinstSongsLoop" v-for="o in getArtistSongs" :key="o.videoId">
                     <p>
                         Track: {{o.name}} 
