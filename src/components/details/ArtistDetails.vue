@@ -63,7 +63,6 @@ export default {
         async getAllArtistSongs(bandName){
             bandName = this.$store.state.artists.name
            
-           
              await this.$store.dispatch('fetchAllArtistSongs', bandName)
         },
 
